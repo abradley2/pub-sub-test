@@ -1,2 +1,3 @@
 .env
 pub-sub-test
+.DS_Store

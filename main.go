@@ -76,7 +76,7 @@ func main() {
 
 func getDanAykroydBase64() ([]byte, error) {
 	var err error
-	danAykroydBase64 := make([]byte, 1000000)
+	var danAykroydBase64 []byte
 
 	pwd, err := os.Getwd()
 	if err != nil {
@@ -86,6 +86,7 @@ func getDanAykroydBase64() ([]byte, error) {
 	p := path.Join(pwd, "images", "dan_aykroyd.jpg")
 
 	danAykroyd, err := os.ReadFile(p)
+	danAykroydBase64 = make([]byte, len(danAykroyd)*2)
 	base64.RawStdEncoding.Encode(danAykroydBase64, danAykroyd)
 
 	return danAykroydBase64, err
